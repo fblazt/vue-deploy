@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:production": "env-cmd -f .env.production vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "build:staging": "env-cmd -f .env.staging vite build",
+    "build:production": "env-cmd -f .env.production vite build",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "env-cmd": "^10.1.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
